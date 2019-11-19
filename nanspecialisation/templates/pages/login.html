@@ -1,0 +1,36 @@
+{% extends 'bases/base.html' %}
+
+
+{% block content %}
+    
+<div class="login-card">
+    <div>
+        <div class="clip-each clip-solid">
+            <span class="social-each">
+            </span> 
+        </div>	
+
+        <svg class="clip-svg">
+            <defs>
+                <clipPath id="hexagon-clip" clipPathUnits="objectBoundingBox">
+                    <polygon points="0.25 0.05, 0.75 0.05, 1 0.5, 0.75 0.95, 0.25 0.95, 0 0.5" />
+                </clipPath>
+            </defs>
+        </svg>
+    </div>
+    <h1 class="text-center mb-5">Bienvenue</h1>
+    <form>
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="email">
+            <!-- <small class="form-text text-error">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Mot de passe">
+            <!-- <small  class="form-text text-error">We'll never share your email with anyone else.</small> -->
+        </div>
+        <button type="submit" class="btn btn1">Connexion</button>
+    </form>
+</div>
+
+{% endblock content %}
+    

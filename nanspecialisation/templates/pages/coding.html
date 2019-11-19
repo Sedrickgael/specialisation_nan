@@ -1,0 +1,145 @@
+{% extends 'bases/home.html' %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="space-top-code">
+
+        
+        <div class="page-container">
+
+            <!-- Horizontal resizer -->
+    
+            <div class="panel-container">
+    
+                <div class="panel-left">
+                    <div class="questions">
+    
+                        <!-- Accordion -->
+                        <div class="accordion" id="accordionExample">
+                            <div class="card card-bg">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <!-- Question Number -->
+                                        Question 1
+                                    </button>
+                                    </h2>
+                                </div>
+                            
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body quest">
+                                        <!-- Questions -->
+                                        <p>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                            Ratione commodi sit natus nisi odio sed ipsa dolorum nobis, 
+                                            laudantium tenetur, qui veniam corrupti odit tempore unde 
+                                            quod cumque vel incidunt.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-bg">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <!-- Question Number -->
+                                        Question 2
+                                    </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body quest">
+                                        <!-- Questions -->
+                                         <p>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                            Ratione commodi sit natus nisi odio sed ipsa dolorum nobis, 
+                                            laudantium tenetur, qui veniam corrupti odit tempore unde 
+                                            quod cumque vel incidunt.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-bg">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <!-- Question Number -->
+                                        Question 3
+                                    </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body quest">
+                                        <!-- Questions -->
+                                         <p>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                            Ratione commodi sit natus nisi odio sed ipsa dolorum nobis, 
+                                            laudantium tenetur, qui veniam corrupti odit tempore unde 
+                                            quod cumque vel incidunt.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-bg">
+                                <div class="card-header" id="headingFour">
+                                    <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <!-- Question Number -->
+                                        Question 4
+                                    </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                    <div class="card-body quest">
+                                        <!-- Questions -->
+                                         <p>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                            Ratione commodi sit natus nisi odio sed ipsa dolorum nobis, 
+                                            laudantium tenetur, qui veniam corrupti odit tempore unde 
+                                            quod cumque vel incidunt.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="splitter">
+                </div>
+    
+                <div class="panel-right">
+    
+                    <!-- vertcal resizer -->
+                    <div class="panel-container-vertical">
+    
+                        <div class="panel-top">
+                            <div class="buttons">
+                                <button type="submit" class="s-btn-2 btn"><img src="/static/ressources/images/svg/settings-gears.svg" alt="settings-gears image" class="img-fluid img-soro"> Test</button>
+                                <button type="submit" class="p-btn-3 btn"><img src="/static/ressources/images/svg/recycle.svg" alt="recycle image" class="img-fluid img-soro" > Run</button>
+                            </div>
+                            <div class="coding">
+                            </div>
+                            
+                        </div>
+            
+                        <div class="splitter-horizontal">
+                        </div>
+            
+                        <div class="panel-bottom">
+                            <!-- result panel -->
+                        </div>
+    
+                    </div>
+                </div>
+                
+            </div>
+    
+        </div>
+            
+    </div>
+</div>
+    
+{% endblock content %}
+    

@@ -1,0 +1,201 @@
+{% extends 'bases/home.html' %}
+
+
+{% block content %}
+
+<div class="quiz-box">
+    <div class="row">
+        <div class="col-12">
+            <div class="my-shadow card mb-5 quiz-header">
+                <h3 >Quiz 1</h3>
+                <h4 class="mb-0">Cursus front-end</h4>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8">
+            <div class="my-shadow card quiz-card mb-4">
+                <div class="carousel-controls testimonial-carousel-controls ">
+                    <div class="d-flex mb-5">
+                        <div class="control prev">
+                            <button class="btn1">
+                                <img src="/static/ressources/images/svg/arrow-point-to-right.svg" class="img-fluid" style="max-height: 2rem; transform: rotate(180deg);" alt="">
+                            </button>
+                        </div>
+                        <div class="control next">
+                            <button class="btn1">
+                                <img src="/static/ressources/images/svg/arrow-point-to-right.svg" class="img-fluid" style="max-height: 2rem;" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-carousel">
+                        <div class="h5 font-weight-normal one-slide mx-auto">
+                            <div class="testimonial  px-3 d-flex flex-direction-column justify-content-center flex-wrap ">
+                                <div>
+                                    <span class="badge badge-secondary badge-question">Question 1</span>
+                                    <br><br>
+                                    <p class="quiz-question">
+                                        They’ve been consistent throughout 
+                                        the years and grown together with us. 
+                                        Even as they’ve grown, they haven’t lost 
+                                        sight of what they do. Most of their key 
+                                        resources are still with them, which is also 
+                                        a testament to their organization."
+                                    </p>
+                                    <br><hr><br>
+                                    <div class="new">
+                                        <form>
+                                            <div class="form-groupe">
+                                                <input type="checkbox" id="html">
+                                                <label for="html">HTML</label>
+                                            </div>
+                                            <div class="form-groupe">
+                                                <input type="checkbox" id="css">
+                                                <label for="css">CSS</label>
+                                            </div>
+                                            <div class="form-groupe">
+                                                <input type="checkbox" id="javascript">
+                                                <label for="javascript">Javascript</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- question 2 -->
+                        <div class="h5 font-weight-normal one-slide mx-auto">
+                            <div class="testimonial  px-3 d-flex flex-direction-column justify-content-center flex-wrap ">
+                                <div>
+                                    <span class="badge badge-secondary badge-question">Question 2</span>
+                                    <br><br>
+                                    <p class="quiz-question">
+                                        They’ve been consistent throughout 
+                                        the years and grown together with us. 
+                                        Even as they’ve grown, they haven’t lost 
+                                        sight of what they do. Most of their key 
+                                        resources are still with them, which is also 
+                                        a testament to their organization."
+                                    </p>
+                                    <br><hr><br>
+                                    <div class="new">
+                                        <form>
+                                            <div class="form-groupe">
+                                                <input type="checkbox" id="html">
+                                                <label for="html">HTML</label>
+                                            </div>
+                                            <div class="form-groupe">
+                                                <input type="checkbox" id="css">
+                                                <label for="css">CSS</label>
+                                            </div>
+                                            <div class="form-groupe">
+                                                <input type="checkbox" id="javascript">
+                                                <label for="javascript">Javascript</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4">
+            <div class="my-shadow card quiz-card">
+                <div class="timer-quiz mb-5 center-content">
+                    <h1 class="mb-0">01:23:43</h1>
+                </div>
+                <div class="d-flex" style="flex-wrap: wrap;">
+                    <a href="#"class="qestion-number">
+                        <div>01</div>
+                    </a>
+                    <a href="#"class="qestion-number answered">
+                        <div>02</div>
+                    </a>
+                    <a href="#"class="qestion-number">
+                        <div>03</div>
+                    </a>
+                    <a href="#"class="qestion-number">
+                        <div>04</div>
+                    </a>
+                    <a href="#"class="qestion-number">
+                        <div>05</div>
+                    </a>
+                    <a href="#"class="qestion-number">
+                        <div>06</div>
+                    </a>
+                    <a href="#"class="qestion-number">
+                        <div>07</div>
+                    </a>
+                    <a href="#"class="qestion-number">
+                        <div>08</div>
+                    </a>
+                    <a href="#"class="qestion-number">
+                        <div>09</div>
+                    </a>
+                    <a href="#"class="qestion-number">
+                        <div>10</div>
+                    </a>
+                    <a href="#"class="qestion-number">
+                        <div>11</div>
+                    </a>
+                    <a href="#"class="qestion-number">
+                        <div>12</div>
+                    </a>
+                </div>
+                <div class="mt-3 mb-5">
+                    <button class="btn1" data-toggle="modal" data-target="#exampleModalCenter">Soumettre</button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Cursus front-end</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Êtes-vous sûr de vouloir valider vos réponses?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn1" data-dismiss="modal">retour</button>
+                            <button type="button" class=" btn1" data-dismiss="modal" data-toggle="modal" data-target="#exampleModalCenterTwo">valider</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenterTwo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body text-center">
+                                    <img src="/static/ressources/images/svg/sent.svg" class="img-fluid" alt="sent" style="max-height: 20rem;">
+                                    <h3 class="mt-4">Votre quiz a été soumis avec succès</h3>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{% url 'profil' %}">
+                                        <button class="btn1">consulter mes résultats</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <h5 class="mb-0" style="color: #661058;font-weight: bold;">Consigne</h5>
+                <h5>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Velit, earum ipsa enim praesentium rem quae eum repudiandae 
+                    tempora tempore est deserunt repellendus cupiditate quod, 
+                    delectus nesciunt. Ab quos totam excepturi.
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}
+    
