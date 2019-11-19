@@ -116,23 +116,22 @@ class Cours(models.Model):
         """Unicode representation of Cours."""
         return self.titre
 
-class Ressource(models.Model):
-    """Model definition for Ressource."""
+class Ressources(models.Model):
+    """Model definition for Ressources."""
 
-    cours = models.ForeignKey(Cours, on_delete=models.CASCADE, related_name="ressources_cours")
-    date_add = models.DateTimeField(auto_now_add=True)
-    date_upd = models.DateTimeField(auto_now=True)
-    status = models.BooleanField(default=True)
+    cours = models.ForeignKey(Cours, on_delete=models.CASCADE,related_name='coursressources')
+    link = models.URLField()
+    types = models.CharField(max_length=255)
 
     class Meta:
-        """Meta definition for Ressource."""
+        """Meta definition for Ressources."""
 
-        verbose_name = 'Ressource'
+        verbose_name = 'Ressources'
         verbose_name_plural = 'Ressources'
 
     def __str__(self):
-        """Unicode representation of Ressource."""
-        return self.cours.titre
+        """Unicode representation of Ressources."""
+        return '{}'.format(self.cours) # TODO
 
 class Composition(models.Model):
     """Model definition for Composition."""
