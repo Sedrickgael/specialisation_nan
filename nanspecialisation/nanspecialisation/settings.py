@@ -169,7 +169,7 @@ DEFAULT = {
 }
 
 FILEBROWSER_DIRECTORY = ''
-FILEBROWSER_MAX_UPLOAD_SIZE = 10485760
+FILEBROWSER_MAX_UPLOAD_SIZE = 10485760 * 100
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
