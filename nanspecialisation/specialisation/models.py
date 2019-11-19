@@ -21,38 +21,6 @@ class Specialisation(models.Model):
     def __str__(self):
         """Unicode representation of Specialisation."""
         return self.nom
-class RessourcesVideo(models.Model):
-    """Model definition for RessourcesVideo."""
-    nom = models.CharField(max_length=250)
-    video = models.URLField()
-    # TODO: Define fields here
-
-    class Meta:
-        """Meta definition for RessourcesVideo."""
-
-        verbose_name = 'RessourcesVideo'
-        verbose_name_plural = 'RessourcesVideos'
-
-    def __str__(self):
-        
-        """Unicode representation of RessourcesVideo."""
-        return '{}:{}'.format(self.nom,self.lien ) # TODO   
-class RessourcesPdf(models.Model):
-    """Model definition for RessourcesPdf."""
-    nom = models.CharField(max_length=250)
-    lien = models.URLField()
-    # TODO: Define fields here
-
-    class Meta:
-        """Meta definition for RessourcesPdf."""
-
-        verbose_name = 'RessourcesPdf'
-        verbose_name_plural = 'RessourcesPdfs'
-
-    def __str__(self):
-        
-        """Unicode representation of RessourcesPdf."""
-        return '{}:{}'.format(self.nom,self.lien ) # TODO   
 
 
 class UserSpecialite(models.Model):
