@@ -11,8 +11,60 @@ class SpecialisationAdmin(admin.ModelAdmin):
     #les champs à afficher dans la table
     list_display = (
         'nom',
+        'id_specialite',
         'status',
         'date_add',
+        'viw_image,'
+        )
+    list_filter = (
+        'status',
+        'date_add',
+        'date_upd',
+    )
+
+    search_fields = (
+        'nom',
+        'id_specialite',
+    )
+
+    date_hierarchy = 'date_add'
+
+    actions = ('active', 'desactive')
+
+    list_display_links = ['nom',]
+    
+    list_per_page = 10
+
+    ordering = ['nom',]
+
+    readonly_fields = ['detail_image']
+
+
+    def active(self, request, queryset):
+        queryset.update(status=True)
+        self.message_user(request, "La sélection a été activée avec succès")
+    active.short_description = 'Activez les Specialisations sélectionnées'
+
+    def desactive(self, request, queryset):
+        queryset.update(status=False)
+        self.message_user(request, "La sélection a été désactivée avec succès")
+    desactive.short_description = 'Désactivez les Specialisations sélectionnées'
+
+    def viw_image(self, obj):
+        return mark_safe('<img src="{img_url}" width="100px" height="50" />'.format(img_url=obj.image.url))
+
+    def detail_image(self, obj):
+        return mark_safe('<img src="{img_url}" width="300px" height="150" />'.format(img_url=obj.image.url))
+
+
+@admin.register(models.Cours)
+class RessourcesVideoAdmin(admin.ModelAdmin):
+
+    #les champs à afficher dans la table
+    list_display = (
+        'nom',
+        'date_add',
+        'status',
         )
     list_filter = (
         'status',
@@ -28,7 +80,7 @@ class SpecialisationAdmin(admin.ModelAdmin):
 
     actions = ('active', 'desactive')
 
-    list_display_links = ['nom',]
+    list_display_links = ['nom']
     
     list_per_page = 10
 
@@ -37,21 +89,20 @@ class SpecialisationAdmin(admin.ModelAdmin):
     def active(self, request, queryset):
         queryset.update(status=True)
         self.message_user(request, "La sélection a été activée avec succès")
-    active.short_description = 'Activez les Specialisations sélectionnées'
+    active.short_description = 'Activez les Ressources Videos sélectionnées'
 
     def desactive(self, request, queryset):
         queryset.update(status=False)
         self.message_user(request, "La sélection a été désactivée avec succès")
-    desactive.short_description = 'Désactivez les Specialisations sélectionnées'
+    desactive.short_description = 'Désactivez les Ressources Videos sélectionnées'
 
-    
+
 @admin.register(models.Cours)
-class CoursAdmin(admin.ModelAdmin):
+class RessourcesPdfAdmin(admin.ModelAdmin):
 
     #les champs à afficher dans la table
     list_display = (
-        'specialisation',
-        'titre',
+        'nom',
         'date_add',
         'status',
         )
@@ -59,32 +110,32 @@ class CoursAdmin(admin.ModelAdmin):
         'status',
         'date_add',
         'date_upd',
-        'specialisation',
     )
 
     search_fields = (
-        'titre',
+        'nom',
     )
 
     date_hierarchy = 'date_add'
 
     actions = ('active', 'desactive')
 
-    list_display_links = ['titre']
+    list_display_links = ['nom']
     
     list_per_page = 10
 
-    ordering = ['titre',]
+    ordering = ['nom',]
 
     def active(self, request, queryset):
         queryset.update(status=True)
         self.message_user(request, "La sélection a été activée avec succès")
-    active.short_description = 'Activez les Cours sélectionnées'
+    active.short_description = 'Activez les Ressources Videos sélectionnées'
 
     def desactive(self, request, queryset):
         queryset.update(status=False)
         self.message_user(request, "La sélection a été désactivée avec succès")
-    desactive.short_description = 'Désactivez les Cours sélectionnées'
+    desactive.short_description = 'Désactivez les Ressources Videos sélectionnées'
+
 
 @admin.register(models.Ressource)
 class RessourceAdmin(admin.ModelAdmin):
