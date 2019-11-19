@@ -70,7 +70,7 @@ class CoursAdmin(admin.ModelAdmin):
 
     actions = ('active', 'desactive')
 
-    list_display_links = ['titre',]
+    list_display_links = ['titre']
     
     list_per_page = 10
 
@@ -115,13 +115,12 @@ class RessourceAdmin(admin.ModelAdmin):
 
     actions = ('active', 'desactive')
 
-    list_display_links = ['titre', 'view_image']
+    # list_display_links = ['titre']
     
     list_per_page = 3
 
-    ordering = ['titre',]
+    # ordering = ['titre',]
 
-    readonly_fields = ['detail_image']
 
     fieldsets = [
         ('Information', {'fields' : ['Cours']}),
