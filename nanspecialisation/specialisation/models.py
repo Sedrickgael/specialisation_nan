@@ -11,6 +11,7 @@ class Specialisation(models.Model):
     date_upd = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=True)
     id_specialite = models.PositiveIntegerField(null=True, blank=True)
+
     # TODO: Define fields here
 
     class Meta:
@@ -31,6 +32,7 @@ class UserSpecialite(models.Model):
     date_add = models.DateTimeField(auto_now_add=True)
     date_upd = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=True)
+
     class Meta:
         """Meta definition for UserSpecialite."""
 
@@ -48,10 +50,8 @@ class UserSpecialite(models.Model):
 class Niveau(models.Model):
     """Model definition for Niveau."""
 
-
     nom = models.CharField(max_length=255)
     description = HTMLField('description')
-
     status = models.BooleanField(default=True)
     date_add = models.DateTimeField(auto_now_add=True)
     date_upd = models.DateTimeField(auto_now=True)
@@ -138,11 +138,12 @@ class ResultatCompos(models.Model):
     date_add = models.DateTimeField(auto_now_add=True)
     date_upd = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=True)
+    
     class Meta:
-            """Meta definition for Composition."""
+        """Meta definition for Composition."""
 
-            verbose_name = 'ResultatCompos'
-            verbose_name_plural = 'ResultatCompos'
+        verbose_name = 'ResultatCompos'
+        verbose_name_plural = 'ResultatComposs'
 
     def __str__(self):
         """Unicode representation of ResultatCompos."""
