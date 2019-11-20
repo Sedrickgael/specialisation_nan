@@ -17,59 +17,59 @@ class ExtendConnection(Connection):
     def resolve_edge_count(root,info,**kwargs):
         return len(root.edges)
 
-class SpecialisationNode(DjangoObjectType):
-    class Meta:
-        model = models.Specialisation
-        # Allow for some more advanced filtering here
-        fields = "__all__"
-        filter_fields = {
-            'nom': ['exact', 'icontains', 'istartswith'],
-            'langage': ['exact', 'icontains', 'istartswith'],
-            'statut': ['exact'], 
+# class SpecialisationNode(DjangoObjectType):
+#     class Meta:
+#         model = models.Specialisation
+#         # Allow for some more advanced filtering here
+#         fields = "__all__"
+#         filter_fields = {
+#             'nom': ['exact', 'icontains', 'istartswith'],
+#             'langage': ['exact', 'icontains', 'istartswith'],
+#             'statut': ['exact'], 
             
-        }
-        interfaces = (relay.Node,)
-        connection_class = ExtendConnection
+#         }
+#         interfaces = (relay.Node,)
+#         connection_class = ExtendConnection
 
-class RelayCreateSpecialisation(graphene.relay.ClientIDMutation):
-    specialisation = graphene.Field(SpecialisationNode)
-    class Input:
-        nom = graphene.String()
-        langage = graphene.String()
-        status = graphene.Boolean()
-        pk = graphene.ID()
+# class RelayCreateSpecialisation(graphene.relay.ClientIDMutation):
+#     specialisation = graphene.Field(SpecialisationNode)
+#     class Input:
+#         nom = graphene.String()
+#         langage = graphene.String()
+#         status = graphene.Boolean()
+#         pk = graphene.ID()
 
-    def mutate_and_get_payload(root,info,**kwargs):
-        pk = kwargs.get('id') or None
-        nom = kwargs.get('nom') or None
-        langage = kwargs.get('nom') or None
-        status = kwargs.get('status') or None
-        if nom is not None and status is not None and langage is not None and pk is None:
-            special = models.Specialisation(nom=nom, langage=langage, status=status)
-        elif nom is not None and status is not None and langage is not None and pk is not None :
-            special = models.Specialisation.objects.get(pk=pk)
-            special.nom = nom
-            special.langage = langage
-            special.status = status
-        elif nom is not None and  langage is not None and status is None and pk is not None:
-            special = models.Specialisation.objects.get(pk=pk)
-            special.nom = nom
-            special.langage = langage
-        elif nom is None and langage is not None and status is not None and pk is not None:
-            special = models.Specialisation.objects.get(pk=pk)
-            special.langage = langage
-            special.status = status
-        elif nom is not None and langage is None and status is not None and pk is not None:
-            special = models.Specialisation.objects.get(pk=pk)
-            special.nom = nom
-            special.status = status
-        elif nom is None and langage is None and status is not None and pk is not None:
-            special = models.Specialisation.objects.get(pk=pk)
-            special.status = status
-        else:
-            raise Exception('must be give parameters for Spécialisation mutations')
-        special.save()
-        return RelayCreateSpecialisation(specialisation = special)
+#     def mutate_and_get_payload(root,info,**kwargs):
+#         pk = kwargs.get('id') or None
+#         nom = kwargs.get('nom') or None
+#         langage = kwargs.get('nom') or None
+#         status = kwargs.get('status') or None
+#         if nom is not None and status is not None and langage is not None and pk is None:
+#             special = models.Specialisation(nom=nom, langage=langage, status=status)
+#         elif nom is not None and status is not None and langage is not None and pk is not None :
+#             special = models.Specialisation.objects.get(pk=pk)
+#             special.nom = nom
+#             special.langage = langage
+#             special.status = status
+#         elif nom is not None and  langage is not None and status is None and pk is not None:
+#             special = models.Specialisation.objects.get(pk=pk)
+#             special.nom = nom
+#             special.langage = langage
+#         elif nom is None and langage is not None and status is not None and pk is not None:
+#             special = models.Specialisation.objects.get(pk=pk)
+#             special.langage = langage
+#             special.status = status
+#         elif nom is not None and langage is None and status is not None and pk is not None:
+#             special = models.Specialisation.objects.get(pk=pk)
+#             special.nom = nom
+#             special.status = status
+#         elif nom is None and langage is None and status is not None and pk is not None:
+#             special = models.Specialisation.objects.get(pk=pk)
+#             special.status = status
+#         else:
+#             raise Exception('must be give parameters for Spécialisation mutations')
+#         special.save()
+#         return RelayCreateSpecialisation(specialisation = special)
 
 class UserNode(DjangoObjectType):
     class Meta:
@@ -84,15 +84,15 @@ class UserNode(DjangoObjectType):
         connection_class = ExtendConnection
 
 
-class ProfileNode(DjangoObjectType):
-    class Meta:
-        model = models.Profile
-        # Allow for some more advanced filtering here
-        fields = "__all__"
-        filter_fields = {
-            'statut': ['exact'], 
-        }
-        interfaces = (relay.Node, )
+# class ProfileNode(DjangoObjectType):
+#     class Meta:
+#         model = models.Profile
+#         # Allow for some more advanced filtering here
+#         fields = "__all__"
+#         filter_fields = {
+#             'statut': ['exact'], 
+#         }
+#         interfaces = (relay.Node, )
         
         
 class QuizzNode(DjangoObjectType):
@@ -166,11 +166,11 @@ class ReponseUserNode(DjangoObjectType):
         connection_class = ExtendConnection
 
 class Query(graphene.ObjectType):
-    Specialisation = relay.Node.Field(SpecialisationNode)
-    all_Specialisation = DjangoFilterConnectionField(SpecialisationNode)
+    # Specialisation = relay.Node.Field(SpecialisationNode)
+    # all_Specialisation = DjangoFilterConnectionField(SpecialisationNode)
 
-    Profile = relay.Node.Field(ProfileNode)
-    all_Profiles = DjangoFilterConnectionField(ProfileNode)
+    # Profile = relay.Node.Field(ProfileNode)
+    # all_Profiles = DjangoFilterConnectionField(ProfileNode)
 
     Profile = relay.Node.Field(UserNode)
     all_Users = DjangoFilterConnectionField(UserNode)
@@ -190,5 +190,5 @@ class Query(graphene.ObjectType):
     ReponseUser = relay.Node.Field(ReponseUserNode)
     all_ReponseUsers = DjangoFilterConnectionField(ReponseUserNode)
 
-class RelayMutation(graphene.AbstractType):
-    relay_create_specialisation = RelayCreateSpecialisation.Field()
+# class RelayMutation(graphene.AbstractType):
+    # relay_create_specialisation = RelayCreateSpecialisation.Field()

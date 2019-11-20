@@ -1,38 +1,6 @@
 from django.contrib import admin
-
-# Register your models here.
-
-# vim: set fileencoding=utf-8 :
 from django.utils.safestring import mark_safe
 from . import models
-
-
-class SpecialisationAdmin(admin.ModelAdmin):
-
-    list_display = (
-        'statut',
-        'date_add',
-        'date_update',
-        'nom',
-        'langage',
-    )
-    list_filter = (
-        'statut',
-        'date_add',
-        'date_update',
-    )
-    date_hierarchy = ('date_add')
-
-
-# class ProfileAdmin(admin.ModelAdmin):
-#     list_display = ('user', 'specialisation', 'statut', 'date_add', 'date_update', 'view_image')
-#     list_filter = ('statut', 'date_add', 'date_update',)
-#     date_hierarchy = ('date_add')
-
-
-    def view_image(self,obj):
-        return mark_safe('<img src="{img_url}" width="100px", heigth="100px"/>'.format(img_url=obj.image.url))
-
 
 class QuestionInline(admin.TabularInline):
     model =  models.Question

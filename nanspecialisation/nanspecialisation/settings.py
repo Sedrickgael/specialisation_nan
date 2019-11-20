@@ -114,7 +114,7 @@ GRAPHENE = {
 
 TINYMCE_DEFAULT_CONFIG = {
     'height': 360,
-    'width': 900,
+    'width': 800,
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 20,
     'selector': 'textarea',
@@ -140,6 +140,9 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
 }
+
+FILEBROWSER_DIRECTORY=''
+FILEBROWSER_MAX_UPLOAD_SIZE=10485760 *100
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -169,8 +172,7 @@ DEFAULT = {
     'height': 360,
 }
 
-FILEBROWSER_DIRECTORY = ''
-FILEBROWSER_MAX_UPLOAD_SIZE = 10485760 * 100
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
