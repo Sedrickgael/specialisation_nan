@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 GRAPHENE = {
-    'SCHEMA': 'quizznan.schema.schema'
+    'SCHEMA': 'nanspecialisation.schema.schema'
 }
 
 TINYMCE_DEFAULT_CONFIG = {
