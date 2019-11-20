@@ -96,7 +96,7 @@ class Profile(Timemodels):
     @classmethod
     def classement_general(cls):
         return cls.objet.all().order_by('-moyenne_generale')
-    
+          
     @property
     def get_general_rang(self):
         """Fonction pour récupérer le classement général de l'utilisateur"""

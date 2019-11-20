@@ -56,7 +56,7 @@ class SpecialisationAdmin(admin.ModelAdmin):
         self.message_user(request, "La sélection a été désactivée avec succès")
     desactive.short_description = 'Désactivez les Specialisations sélectionnées'
 
-    def viw_image(self, obj):
+    def view_image(self, obj):
         return mark_safe('<img src="{img_url}" width="100px" height="50" />'.format(img_url=obj.image.url))
 
     def detail_image(self, obj):

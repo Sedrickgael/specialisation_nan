@@ -28,7 +28,9 @@ class UserSpecialite(models.Model):
     """Model definition for UserSpecialite."""
     user = models.ForeignKey(User,related_name='user_specialite',on_delete=models.CASCADE)
     specialite = models.ForeignKey(Specialisation, on_delete=models.CASCADE,related_name='specialiteuser')
-
+    date_add = models.DateTimeField(auto_now_add=True)
+    date_upd = models.DateTimeField(auto_now=True)
+    status = models.BooleanField(default=True)
     class Meta:
         """Meta definition for UserSpecialite."""
 
