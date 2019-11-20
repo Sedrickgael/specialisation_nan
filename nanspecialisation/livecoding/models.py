@@ -67,7 +67,7 @@ class ResultatExercice(models.Model):
 
     def __str__(self):
         """Unicode representation of ResultatExercice."""
-        return '{}'.format(self.user ) # TODO
+        return '{}'.format(self.user.username ) # TODO
 
 class ResultatCompo(models.Model):
     """Model definition for ResultatCompo."""

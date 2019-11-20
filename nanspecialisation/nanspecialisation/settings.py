@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
+    'graphene_django_extras',
     'quiz.apps.QuizConfig',
     'specialisation.apps.SpecialisationConfig',
     'livecoding.apps.LivecodingConfig',

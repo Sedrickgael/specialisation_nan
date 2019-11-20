@@ -32,15 +32,15 @@ class UserSpecialite(models.Model):
     date_add = models.DateTimeField(auto_now_add=True)
     date_upd = models.DateTimeField(auto_now=True)
 
-class Meta:
-    """Meta definition for UserSpecialite."""
+    class Meta:
+        """Meta definition for UserSpecialite."""
 
-    verbose_name = 'UserSpecialite'
-    verbose_name_plural = 'UserSpecialites'
+        verbose_name = 'UserSpecialite'
+        verbose_name_plural = 'UserSpecialites'
 
-def __str__(self):
-    """Unicode representation of UserSpecialite."""
-    return '{}:{}'.format(self.user.username,self.specialite.nom ) # TODO
+    def __str__(self):
+        """Unicode representation of UserSpecialite."""
+        return '{}:{}'.format(self.user.username,self.specialite.nom ) # TODO
 
 class Niveau(models.Model):
     """Model definition for Niveau."""
@@ -90,6 +90,9 @@ class Ressources(models.Model):
     cours = models.ForeignKey(Cours, on_delete=models.CASCADE,related_name='coursressources')
     link = models.URLField()
     types = models.CharField(max_length=255)
+    date_add = models.DateTimeField(auto_now_add=True)
+    date_upd = models.DateTimeField(auto_now=True)
+    status = models.BooleanField(default=True)
 
     class Meta:
         """Meta definition for Ressources."""
@@ -99,7 +102,7 @@ class Ressources(models.Model):
 
     def __str__(self):
         """Unicode representation of Ressources."""
-        return '{}'.format(self.cours) # TODO
+        return '{}'.format(self.cours.titre) # TODO
 
 class Composition(models.Model):
     """Model definition for Composition."""
@@ -140,5 +143,5 @@ class ResultatCompos(models.Model):
 
     def __str__(self):
         """Unicode representation of ResultatCompos."""
-        return "{}:{}".format(self.user.username, self.rang)
+        return "{}".format(self.user.username)
 
