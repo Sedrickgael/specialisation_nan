@@ -60,7 +60,7 @@ class Niveau(models.Model):
         """Meta definition for Niveau."""
 
         verbose_name = 'Niveau'
-        verbose_name_plural = 'Niveaus'
+        verbose_name_plural = 'Niveaux'
 
     def __str__(self):
         """Unicode representation of Niveau."""
@@ -82,10 +82,10 @@ class Cours(models.Model):
         """Meta definition for Cours."""
 
         verbose_name = 'Cours'
-        verbose_name_plural = 'Courss'
+        verbose_name_plural = 'Cours'
     
     def __str__(self):
-        """Unicode representation of Niveau."""
+        """Unicode representation of Cours."""
         return self.titre
 
 class Ressources(models.Model):
@@ -142,7 +142,7 @@ class ResultatCompos(models.Model):
             """Meta definition for Composition."""
 
             verbose_name = 'ResultatCompos'
-            verbose_name_plural = 'ResultatComposs'
+            verbose_name_plural = 'ResultatCompos'
 
     def __str__(self):
         """Unicode representation of ResultatCompos."""
