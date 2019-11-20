@@ -20,7 +20,8 @@ from django.conf.urls.static import static
 from filebrowser.sites import site
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('specialisation.urls')),
+    # path('', include('specialisation.urls')),
+    path('', include('quiz.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('admin/filebrowser/', site.urls),
 ]

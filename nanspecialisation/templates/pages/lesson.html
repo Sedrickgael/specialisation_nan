@@ -1,0 +1,178 @@
+{% extends 'bases/home.html' %}
+
+
+{% block content %}
+    
+<div class="course-box">
+    <div class="row">
+        <div class="col-12">
+            <div class="note my-shadow  center-content mb-5">
+                <h3 class="mb-0">Test de spécialisation</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed btn-accordeon" >
+                           Leçon 1
+                        </button>
+                    </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <h3> <span class="c-lesson-title"> titre:</span> <br> html/css</h3>
+                        <br>
+                        <h4 class="c-lesson-title">Desciption:</h4>
+                        <h5> Anim pariatur cliche reprehenderit,
+                             enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                              Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, 
+                              sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, 
+                              craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
+                               raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. 
+                        </h5>
+                        <br>
+                        <br>
+                        <!-- pdf link -->
+                        <a href="{% url 'pdf' %}" target="_blank" class="btn1" > ressources pdf</a>
+
+                        <a href="#" class="btn1" data-toggle="modal" data-target="#exampleModalCenter1"> ressources video</a>
+                        <!-- video modal -->
+                        <div class="videos">
+                            <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter1Title" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content video-content">
+                                    <div class="modal-body">
+                                        <video id='my-video' class='video-js video-player' controls preload='auto'  height='364'
+                                            poster='/static/ressources/videos/Snapshots/Tropical.jpg' data-setup='{}'>
+                                                <source src='https://ak1.picdn.net/shutterstock/videos/1029207101/preview/stock-footage-spring-flowers-opening-beautiful-spring-apricot-tree-blossom-open-timelapse-extreme-close-up.webm' type='video/webm'>
+                                                
+                                                <p class='vjs-no-js'>
+                                                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                                <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+                                                </p>
+                                        </video>
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed btn-accordeon" >
+                                Leçon 2
+                        </button>
+                    </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        <h3> <span class="c-lesson-title"> titre:</span> <br> Javascript</h3>
+                        <br>
+                        <h4 class="c-lesson-title">Desciption:</h4>
+                        <h5> Anim pariatur cliche reprehenderit,
+                            enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                            Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, 
+                            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, 
+                            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
+                            raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. 
+                        </h5>
+                        <br>
+                        <br>
+                        <!-- pdf link -->
+                        <a href="{% url 'pdf' %}" target="_blank" class="btn1" > ressources pdf</a>
+
+                        <a href="#" class="btn1" data-toggle="modal" data-target="#exampleModalCenter2"> ressources video</a>
+                        <!-- video modal -->
+                        <div class="videos">
+                            <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter2Title" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content video-content">
+                                    <div class="modal-body">
+                                        <video id='my-video' class='video-js video-player' controls preload='auto'  height='364'
+                                            poster='/static/ressources/videos/Snapshots/Tropical.jpg' data-setup='{}'>
+                                                <source src='/static/ressources/videos/MP4/Tropical.mp4' type='video/mp4'>
+                                                <source src='/static/ressources/videos/WEBM/Tropical.webm' type='video/webm'>
+                                                <p class='vjs-no-js'>
+                                                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                                <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+                                                </p>
+                                        </video>
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed btn-accordeon" >
+                            Leçon 3
+                        </button>
+                    </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                    <div class="card-body">
+                        <h3> <span class="c-lesson-title"> titre:</span> <br> Flutter</h3>
+                        <br>
+                        <h4 class="c-lesson-title">Desciption:</h4>
+                        <h5> Anim pariatur cliche reprehenderit,
+                            enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                            Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, 
+                            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, 
+                            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
+                            raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. 
+                        </h5>
+                        <br>
+                        <br>
+                            <!-- pdf link -->
+                        <a href="{% url 'pdf' %}" target="_blank" class="btn1" > ressources pdf</a>
+
+                        <a href="#" class="btn1" data-toggle="modal" data-target="#exampleModalCenter3"> ressources video</a>
+                            <!-- video modal -->
+                        <div class="videos">
+                            <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter3Title" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content video-content">
+                                    <div class="modal-body">
+                                        <video id='my-video' class='video-js video-player' controls preload='auto'  height='364'
+                                            poster='/static/ressources/videos/Snapshots/Tropical.jpg' data-setup='{}'>
+                                                <source src='/static/ressources/videos/MP4/Tropical.mp4' type='video/mp4'>
+                                                <source src='/static/ressources/videos/WEBM/Tropical.webm' type='video/webm'>
+                                                <p class='vjs-no-js'>
+                                                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                                <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+                                                </p>
+                                        </video>
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                </div>
+                <br><br><br>
+                <div>
+                    <a href="{% url 'quizz' %}" class="btn1"> passer le quiz</a> &nbsp;
+                    <a href="{% url 'coding' %}" class="btn1"> coding challenge</a>
+                </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+    

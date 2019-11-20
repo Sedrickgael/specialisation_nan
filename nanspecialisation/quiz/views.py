@@ -65,6 +65,10 @@ def epreuve(request):
 def lesson(request):
     return render(request, 'pages/lesson.html')
 
+@login_required(login_url='login')
+def pdf(request):
+    return render(request, 'pages/pdf.html')
+
 def deconnexion(request):
     logout(request)
 

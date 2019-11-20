@@ -10,5 +10,7 @@ urlpatterns = [
     path('quizz', views.quizz, name='quizz'),
     path('epreuve', views.epreuve, name='epreuve'),
     path('lesson', views.lesson, name='lesson'),
+    path('pdf', views.pdf, name = 'pdf'),
+    
     path('deconnexion', views.deconnexion, name='deconnexion'),
 ]

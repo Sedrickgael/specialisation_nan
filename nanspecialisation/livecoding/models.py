@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce import HTMLField
 from specialisation.models import * 
 
 # Create your models here.
@@ -64,11 +65,9 @@ class ResultatExercice(models.Model):
 
         verbose_name = 'ResultatExercice'
         verbose_name_plural = 'ResultatExercices'
-
     def __str__(self):
         """Unicode representation of ResultatExercice."""
         return '{}'.format(self.user.username ) # TODO
-
 class ResultatCompo(models.Model):
     """Model definition for ResultatCompo."""
 

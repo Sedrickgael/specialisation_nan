@@ -27,6 +27,7 @@ class SpecialisationAdmin(admin.ModelAdmin):
         'nom',
     )
 
+
     date_hierarchy = 'date_add'
 
     actions = ('active', 'desactive')
@@ -55,7 +56,7 @@ class SpecialisationAdmin(admin.ModelAdmin):
         self.message_user(request, "La sélection a été désactivée avec succès")
     desactive.short_description = 'Désactivez les Specialisations sélectionnées'
 
-    def view_image(self, obj):
+    def viw_image(self, obj):
         return mark_safe('<img src="{img_url}" width="100px" height="50" />'.format(img_url=obj.image.url))
 
     def detail_image(self, obj):
@@ -115,7 +116,6 @@ class UserSpecialiteAdmin(admin.ModelAdmin):
 
     # def detail_image(self, obj):
     #     return mark_safe('<img src="{img_url}" width="300px" height="150" />'.format(img_url=obj.image.url))
-
 
 @admin.register(models.Niveau)
 class NiveauAdmin(admin.ModelAdmin):
@@ -237,10 +237,6 @@ class RessourceAdmin(admin.ModelAdmin):
         'types',
     )
 
-    date_hierarchy = 'date_add'
-
-    actions = ('active', 'desactive')
-
     list_display_links = ['types']
     
     list_per_page = 10
@@ -249,10 +245,11 @@ class RessourceAdmin(admin.ModelAdmin):
 
 
     fieldsets = [
-        ('Information', {'fields' : ['Cours']}),
+        ('Information', {'fields' : ['cours']}),
         ('Ressources', {'fields' : ['link', 'types']}),
         ('Standard', {'fields' : ['status', 'date_upd']}),
     ]
+    
 
     def active(self, request, queryset):
         queryset.update(status=True)
@@ -315,6 +312,8 @@ class CompositionAdmin(admin.ModelAdmin):
         self.message_user(request, "La sélection a été désactivée avec succès")
     desactive.short_description = 'Désactivez les Compositions sélectionnées'
 
+    # def view_video(self, obj):
+    #     return mark_safe('<video controls width="250"><source src="{video_url}" type="video/webm"><source src="{video_url}" type="video/mp4"></video>'.format(video_url=obj.video.url))
 
 @admin.register(models.ResultatCompos)
 class ResultatComposAdmin(admin.ModelAdmin):

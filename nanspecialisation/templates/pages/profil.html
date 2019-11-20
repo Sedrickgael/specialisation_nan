@@ -1,0 +1,164 @@
+{% extends 'bases/home.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="space-top">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4">
+                <div class="user-card mb-4">
+                    <div class="profils">
+                      <div>
+                          <div class="image-circle"></div>
+                          <h4 class="text-center username mt-3">CECILIA KOFFI</h4>
+                          <h5>féminin</h5>
+                      </div>
+                      <a href="#" class="btn2">Mes informations</a>
+  
+                    </div>
+                    <div class="profil-info pt-3">
+                      <h4>Abobo</h4>
+                      <h4>cecilia@gmail.com</h4>
+                      <h4 class="mb-5">+225 34 345 456</h4>
+                      
+  
+                    </div>
+                 </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="true">Général</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-me-tab" data-toggle="pill" href="#pills-me" role="tab" aria-controls="pills-me" aria-selected="false">Mes résultats</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
+                        <div class="mt-5">
+                            <div class="card br5 sz14 my-shadow" style="border: none">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table id="setting_defaults" class="table  table-bordered display" style="width:100%; font-size: 1.2rem;">
+                                            <thead>
+                                                <tr>
+                                                    <th style="border-bottom: none;border-top:none">Rang</th>
+                                                    <th style="border-bottom: none;border-top:none">Nom</th>
+                                                    <th style="border-bottom: none;border-top:none">Prénoms</th>  
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1000</td>
+                                                    <td>koffi</td>
+                                                    <td>Anvi Yves Donald</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1000</td>
+                                                    <td>koffi</td>
+                                                    <td>Anvi Yves Donald</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1000</td>
+                                                    <td>koffi</td>
+                                                    <td>Anvi Yves Donald</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1000</td>
+                                                    <td>koffi</td>
+                                                    <td>Anvi Yves Donald</td>
+                                                </tr>
+                                                
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-me" role="tabpanel" aria-labelledby="pills-me-tab">
+                            <div class="mt-5">
+                                <div class="card br5 sz14 my-shadow" style="border: none">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table id="row_group" class="table  table-bordered display" style="width:100%; font-size: 1.2rem;">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Date</th>
+                                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Intitulé</th>
+                                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Date</th>
+                                                        
+                                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Temps mis</th>
+                                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Statut</th>
+                                                        <th style="border-bottom: none;border-top:none" class="anv-teal">pourcentage</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Administration des affaires</td>
+                                                        <td>1er / 12</td>
+                                                        <td>Test 1</td>
+                                                        <td>24 minutes</td>
+                                                        <td>
+                                                            <span class="badge badge-pill badge-danger">fail</span>
+                                                        </td>
+                                                        <td>
+                                                            35%
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>1er / 12</td>
+                                                        <td>Test 1</td>
+                                                        <td>24 minutes</td>
+                                                        <td >
+                                                            <span class="badge badge-pill badge-success">pass</span>
+                                                        </td>
+                                                        <td>
+                                                            35%
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ashton Cox</td>
+                                                        <td>2e / 12</td>
+                                                        <td>Test 1</td>
+                                                        <td>24 minutes</td>
+                                                        <td >
+                                                            <span class="badge badge-pill badge-success">pass</span>
+                                                        </td>
+                                                        <td>
+                                                            35%
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Cedric Kelly</td>
+                                                        <td>1er / 12</td>
+                                                        <td>Test 2</td>
+                                                        <td>24 minutes</td>
+                                                        <td >
+                                                            <span class="badge badge-pill badge-success">pass</span>
+                                                        </td>
+                                                        <td>
+                                                            35%
+                                                        </td>
+                                                    </tr>
+                                                    
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            
+            
+    </div>
+</div>
+    
+{% endblock content %}
+    

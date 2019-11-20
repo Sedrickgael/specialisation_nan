@@ -7,42 +7,48 @@
         <title> NaN - concours </title>
 
         <!-- stylesheet ***************************************** -->
-        <link rel="stylesheet" href="ressources/css/bootstrap.min.css">
-        <link rel="stylesheet" href="ressources/css/main.css">
+        <link rel="stylesheet" href="/static/ressources/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/ressources/css/main.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="/static/ressources/css/datatable/datatable.bootstrap.css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" rel="stylesheet">
+        <link href="https://vjs.zencdn.net/7.6.5/video-js.css" rel="stylesheet">
+
 
         <!-- favicons  ****************************************** -->
-        <link rel="apple-touch-icon" sizes="57x57" href="ressources/images/favicons.ico/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="ressources/images/favicons.ico//apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="ressources/images/favicons.ico//apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="ressources/images/favicons.ico//apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="ressources/images/favicons.ico//apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="ressources/images/favicons.ico//apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="ressources/images/favicons.ico//apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="ressources/images/favicons.ico//apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="ressources/images/favicons.ico//apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="ressources/images/favicons.ico//android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="ressources/images/favicons.ico//favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="ressources/images/favicons.ico//favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="ressources/images/favicons.ico//favicon-16x16.png">
-        <link rel="manifest" href="ressources/images/favicons.ico//manifest.json">
+        <link rel="apple-touch-icon" sizes="57x57" href="/static/ressources/images/favicons.ico/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/static/ressources/images/favicons.ico//apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/static/ressources/images/favicons.ico//apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/static/ressources/images/favicons.ico//apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/static/ressources/images/favicons.ico//apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/static/ressources/images/favicons.ico//apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/static/ressources/images/favicons.ico//apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/static/ressources/images/favicons.ico//apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/ressources/images/favicons.ico//apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/static/ressources/images/favicons.ico//android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/ressources/images/favicons.ico//favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/static/ressources/images/favicons.ico//favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/ressources/images/favicons.ico//favicon-16x16.png">
+        <link rel="manifest" href="/static/ressources/images/favicons.ico//manifest.json">
         <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="images/favicons.ico/ms-icon-144x144.png">
+        <meta name="msapplication-TileImage" content="/static/images/favicons.ico/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
 
         <!-- jquery ******************************************** -->
-        <script src="ressources/js/jquery.min.js"></script>
-        
+        <script src="/static/ressources/js/jquery.min.js"></script>
+        <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+        <script src='https://vjs.zencdn.net/7.6.5/video.js'></script>
+
     </head>
     <body>
 
         <section class="main center-content">
             <div class="main-navbar">
-                <div id="user-circle" class="profil" style="background: url(ressources/images/photo.png) center no-repeat; background-size: cover;">&nbsp;</div>
+                <div id="user-circle" class="profil" style="background: url(/static/ressources/images/photo.png) center no-repeat; background-size: cover;">&nbsp;</div>
                 <div id="dropdown-user" class="profil-dropdown"  >
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="profil.html">Profil</a></li>
-                        <li><a href="login.html">Déconnexion</a></li>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'profil' %}">Profil</a></li>
+                        <li><a href="{% url 'home' %}">Déconnexion</a></li>
                     </ul>
                 </div>
                 <p class="nan" >Not A Number</p>
@@ -62,9 +68,108 @@
         </section>
         
         <!-- script ****************************************** -->
-        <script src="ressources/js/bootstrap.min.js"></script>
-        <script src="ressources/js/main.js"></script>
+        <script src="/static/ressources/js/main.js"></script>
+        <script src="/static/ressources/js/bootstrap.min.js"></script>
        
+        <script src="/static/ressources/js/slick.min.js"></script>
+
+        <!-- script resizable -->
+        <script src="https://rawgit.com/RickStrahl/jquery-resizable/master/src/jquery-resizable.js"></script>
+
+        <!-- // resizable script // -->
+        <script>
+
+            /* typed js -------------------------------------------------------*/
+            /* testimonials */
+            $(document).ready(function() {
+                $(".testimonial-carousel").slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: false,
+                    arrows: true,
+                    autoplaySpeed: 5000,
+                    prevArrow: $(".testimonial-carousel-controls .prev"),
+                    nextArrow: $(".testimonial-carousel-controls .next")
+                });
+            });
+
+            $(".panel-left").resizable({
+                handleSelector: ".splitter",
+                resizeHeight: false
+            });
+
+            $(".panel-top").resizable({
+                handleSelector: ".splitter-horizontal",
+                resizeWidth: false
+            });
+
+            
+
+        </script>
+
+        <!-- VueJS et Axios -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        
+        <script>
+            // Block Vue JS 
+            new Vue({
+                el: '#app',
+                data: {
+                    username: '',
+                    password: '',
+                    loader: false,
+                    isSuccess: false,
+                    error: false,
+
+                },
+                delimiters: ["${", "}"],
+                mounted() {
+
+                },
+                methods: {
+                    login: function () {
+                        axios.defaults.xsrfCookieName = 'csrftoken'
+                        axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+                        axios.post('http://127.0.0.1:8000/post', {
+                            username: '' + this.username,
+                            password: '' + this.password,
+                        }).then(response => {
+                            console.log(response)
+                            if (response.data.success) {
+                                this.isSuccess = true
+                                this.error = false
+                                this.message = response.data.message
+                                this.success = response.data.success
+                                window.location.replace("home");
+                            }
+                            else {
+                                this.error = true
+                                this.message = response.data.message
+                                this.success = response.data.success
+                                this.isSuccess = false
+                            }
+
+                            console.log("success variable" + this.isSuccess)
+                            // console.log("success variable"+this.error)
+                        })
+                            .catch((err) => {
+                                console.log(err);
+
+                            })
+                    },
+                }
+            });
+            // Block JS
+            // $(function () {
+            //     $('input').iCheck({
+            //         checkboxClass: 'icheckbox_square-blue',
+            //         radioClass: 'iradio_square-blue',
+            //         increaseArea: '20%' /* optional */
+            //     });
+            // });
+        </script>
 
 
     </body>

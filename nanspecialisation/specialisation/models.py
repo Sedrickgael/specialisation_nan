@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from tinymce import HTMLField
 # Create your models here.
+
 class Specialisation(models.Model):
     nom = models.CharField( max_length=250)
     image = models.FileField(upload_to="specialite/image")
@@ -28,15 +29,15 @@ class UserSpecialite(models.Model):
     user = models.ForeignKey(User,related_name='user_specialite',on_delete=models.CASCADE)
     specialite = models.ForeignKey(Specialisation, on_delete=models.CASCADE,related_name='specialiteuser')
 
-    status = models.BooleanField(default=True)
-    date_add = models.DateTimeField(auto_now_add=True)
-    date_upd = models.DateTimeField(auto_now=True)
-
     class Meta:
         """Meta definition for UserSpecialite."""
 
         verbose_name = 'UserSpecialite'
         verbose_name_plural = 'UserSpecialites'
+
+    def __str__(self):
+        """Unicode representation of UserSpecialite."""
+        return '{}:{}'.format(self.user.username,self.specialite.nom ) # TODO
 
     def __str__(self):
         """Unicode representation of UserSpecialite."""
@@ -62,6 +63,7 @@ class Niveau(models.Model):
     def __str__(self):
         """Unicode representation of Niveau."""
         return '{}'.format(self.nom ) # TODO
+
 class Cours(models.Model):
     """Model definition for Cours."""
 
@@ -79,9 +81,9 @@ class Cours(models.Model):
 
         verbose_name = 'Cours'
         verbose_name_plural = 'Courss'
-
+    
     def __str__(self):
-        """Unicode representation of Cours."""
+        """Unicode representation of Niveau."""
         return self.titre
 
 class Ressources(models.Model):
@@ -94,15 +96,16 @@ class Ressources(models.Model):
     date_upd = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=True)
 
+    
     class Meta:
-        """Meta definition for Ressources."""
+        """Meta definition for Cours."""
 
         verbose_name = 'Ressources'
         verbose_name_plural = 'Ressources'
 
     def __str__(self):
         """Unicode representation of Ressources."""
-        return '{}'.format(self.cours.titre) # TODO
+        return '{}'.format(self.cours) # TODO
 
 class Composition(models.Model):
     """Model definition for Composition."""
@@ -133,13 +136,11 @@ class ResultatCompos(models.Model):
     date_add = models.DateTimeField(auto_now_add=True)
     date_upd = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=True)
-
-
     class Meta:
-        """Meta definition for ResultatCompos."""
+            """Meta definition for Composition."""
 
-        verbose_name = 'ResultatCompos'
-        verbose_name_plural = 'ResultatComposs'
+            verbose_name = 'ResultatCompos'
+            verbose_name_plural = 'ResultatComposs'
 
     def __str__(self):
         """Unicode representation of ResultatCompos."""

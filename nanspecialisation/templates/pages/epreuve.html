@@ -1,0 +1,39 @@
+{% extends 'bases/home.html' %}
+
+
+{% block content %}
+    
+<div class="course-box">
+    <div class="row">
+        <div class="col-12">
+            <div class="note my-shadow  center-content mb-5">
+                <h3 class="mb-0">Spécialisation</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+            <a href="{% url 'lesson' %}">
+                <div class="card c-my-card mb-3">
+                    <h3>Epreuve 1</h3>
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+            <a href="{% url 'lesson' %}">
+                <div class="card c-my-card mb-3">
+                    <h3>Epreuve 2</h3>
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+            <a href="{% url 'lesson' %}">
+                <div class="card c-my-card mb-3">
+                    <h3>Epreuve 3</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+    
