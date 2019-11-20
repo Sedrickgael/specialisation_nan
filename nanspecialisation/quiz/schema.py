@@ -78,7 +78,7 @@ class UserNode(DjangoObjectType):
         fields = "__all__"
         filter_fields = {
             'username': ['exact', 'icontains', 'istartswith'],
-            'statut': ['exact'], 
+            'is_active': ['exact'], 
         }
         interfaces = (relay.Node,)
         connection_class = ExtendConnection
@@ -171,6 +171,9 @@ class Query(graphene.ObjectType):
 
     Profile = relay.Node.Field(ProfileNode)
     all_Profiles = DjangoFilterConnectionField(ProfileNode)
+
+    Profile = relay.Node.Field(UserNode)
+    all_Users = DjangoFilterConnectionField(UserNode)
 
     Quizz = relay.Node.Field(QuizzNode)
     all_Quizzs = DjangoFilterConnectionField(QuizzNode)
