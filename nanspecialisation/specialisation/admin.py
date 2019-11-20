@@ -42,7 +42,7 @@ class SpecialisationAdmin(admin.ModelAdmin):
 
     fieldsets = [
         ('Information', {'fields' : ['nom', 'description', 'image', 'id_specialite' ]}),
-        ('Standard', {'fields' : ['status', 'date_upd']}),
+        ('Standard', {'fields' : ['status']}),
     ]
 
 
@@ -98,7 +98,7 @@ class UserSpecialiteAdmin(admin.ModelAdmin):
     # readonly_fields = ['detail_image']
     fieldsets = [
         ('Information', {'fields' : ['user', 'specialite' ]}),
-        ('Standard', {'fields' : ['status', 'date_upd']}),
+        ('Standard', {'fields' : ['status']}),
     ]
 
     def active(self, request, queryset):
@@ -149,7 +149,7 @@ class NiveauAdmin(admin.ModelAdmin):
 
     fieldsets = [
         ('Information', {'fields' : ['nom', 'description' ]}),
-        ('Standard', {'fields' : ['status', 'date_upd']}),
+        ('Standard', {'fields' : ['status']}),
     ]
 
     def active(self, request, queryset):
@@ -199,7 +199,7 @@ class CoursAdmin(admin.ModelAdmin):
     ordering = ['titre',]
     fieldsets = [
         ('Information', {'fields' : ['titre', 'niveau', 'description', 'specialisation' ]}),
-        ('Standard', {'fields' : ['status', 'date_upd']}),
+        ('Standard', {'fields' : ['status']}),
     ]
 
     def active(self, request, queryset):
@@ -247,7 +247,7 @@ class RessourceAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Information', {'fields' : ['cours']}),
         ('Ressources', {'fields' : ['link', 'types']}),
-        ('Standard', {'fields' : ['status', 'date_upd']}),
+        ('Standard', {'fields' : ['status']}),
     ]
     
 
@@ -298,8 +298,8 @@ class CompositionAdmin(admin.ModelAdmin):
 
 
     fieldsets = [
-        ('Information', {'fields' : ['Cours', 'date_debut', 'date_fin']}),
-        ('Standard', {'fields' : ['status', 'date_upd']}),
+        ('Information', {'fields' : ['cours', 'date_debut', 'date_fin']}),
+        ('Standard', {'fields' : ['status']}),
     ]
 
     def active(self, request, queryset):
@@ -347,7 +347,7 @@ class ResultatComposAdmin(admin.ModelAdmin):
 
     fieldsets = [
         ('Information', {'fields' : ['user', 'note', 'rang']}),
-        ('Standard', {'fields' : ['status', 'date_upd']}),
+        ('Standard', {'fields' : ['status']}),
     ]
 
     def active(self, request, queryset):
