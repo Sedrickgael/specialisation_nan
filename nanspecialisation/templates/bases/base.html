@@ -53,6 +53,49 @@
         <script src="/static/ressources/js/bootstrap.min.js"></script>
         <script src="/static/ressources/js/main.js"></script>
 
+        <!-- VueJS et Axios -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/http-vue-loader@1.4.1/src/httpVueLoader.min.js"></script>
+
+        <script>
+            new Vue({
+            el: '#my-app',
+            data: {
+                base_url:'',
+                loader: true,
+                contain: false,
+            },
+            components: {
+                'quizz-test': httpVueLoader('/static/components/quizz.vue'),
+            },
+            delimiters: ["${", "}"],
+            mounted() {
+                // this.getdata()
+            },
+            methods: {
+                // getdata: function(){
+                //     this.base_url = 'https://localhost:8000'
+                //     console.log('data getting')
+                //     axios.defaults.xsrfCookieName = 'csrftoken'
+                //     axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+                //     axios({
+                //         url: this.base_url + '/graphql',
+                //         method: 'post',
+                //         data: {
+                //             query: ``
+                //         }
+                //     })
+                //     .then(response => {
+
+                //     })
+                //     .catch((err) => {
+
+                //     })
+                // }
+            },
+        });
+        </script>
 
     </body>
 </html>

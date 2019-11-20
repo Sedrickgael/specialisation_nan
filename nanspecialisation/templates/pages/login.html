@@ -19,17 +19,27 @@
         </svg>
     </div>
     <h1 class="text-center mb-5">Bienvenue</h1>
-    <form>
-        <div class="form-group">
-            <input type="email" class="form-control" placeholder="email">
-            <!-- <small class="form-text text-error">We'll never share your email with anyone else.</small> -->
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Mot de passe">
-            <!-- <small  class="form-text text-error">We'll never share your email with anyone else.</small> -->
-        </div>
-        <button type="submit" class="btn btn1">Connexion</button>
-    </form>
+    <div id="app">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div v-if="isSuccess" class="alert alert-success" role="alert">
+                ${ message }
+            </div>
+            <div v-if="error" class="alert alert-danger" role="alert">
+                ${ message }
+            </div>
+            <div class="form-group">
+                <input  v-model="username" type="text" class="form-control" placeholder="Nom d'utilisateur">
+                <!-- <small class="form-text text-error">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+                <input  v-model="password" type="password" class="form-control" placeholder="Mot de passe">
+                <!-- <small  class="form-text text-error">We'll never share your email with anyone else.</small> -->
+            </div>
+            <button v-on:click="login" type="button" class="btn btn1">Connexion</button>
+            <div v-if="loader" class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </form>
+    </div>
 </div>
 
 {% endblock content %}

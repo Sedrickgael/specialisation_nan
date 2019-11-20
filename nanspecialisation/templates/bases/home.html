@@ -108,6 +108,69 @@
 
         </script>
 
+        <!-- VueJS et Axios -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        
+        <script>
+            // Block Vue JS 
+            new Vue({
+                el: '#app',
+                data: {
+                    username: '',
+                    password: '',
+                    loader: false,
+                    isSuccess: false,
+                    error: false,
+
+                },
+                delimiters: ["${", "}"],
+                mounted() {
+
+                },
+                methods: {
+                    login: function () {
+                        axios.defaults.xsrfCookieName = 'csrftoken'
+                        axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+                        axios.post('http://127.0.0.1:8000/post', {
+                            username: '' + this.username,
+                            password: '' + this.password,
+                        }).then(response => {
+                            console.log(response)
+                            if (response.data.success) {
+                                this.isSuccess = true
+                                this.error = false
+                                this.message = response.data.message
+                                this.success = response.data.success
+                                window.location.replace("home");
+                            }
+                            else {
+                                this.error = true
+                                this.message = response.data.message
+                                this.success = response.data.success
+                                this.isSuccess = false
+                            }
+
+                            console.log("success variable" + this.isSuccess)
+                            // console.log("success variable"+this.error)
+                        })
+                            .catch((err) => {
+                                console.log(err);
+
+                            })
+                    },
+                }
+            });
+            // Block JS
+            // $(function () {
+            //     $('input').iCheck({
+            //         checkboxClass: 'icheckbox_square-blue',
+            //         radioClass: 'iradio_square-blue',
+            //         increaseArea: '20%' /* optional */
+            //     });
+            // });
+        </script>
+
 
     </body>
 </html>
