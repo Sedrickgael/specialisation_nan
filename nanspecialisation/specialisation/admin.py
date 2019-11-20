@@ -1,195 +1,112 @@
-from django.contrib import admin
+# from django.contrib import admin
 
-#importation des models
-from . import models
-from django.utils.safestring import mark_safe
+# #importation des models
+# from . import models
+# from django.utils.safestring import mark_safe
 
 
-@admin.register(models.Specialisation)
-class SpecialisationAdmin(admin.ModelAdmin):
+# @admin.register(models.Specialisation)
+# class SpecialisationAdmin(admin.ModelAdmin):
 
-    #les champs à afficher dans la table
-    list_display = (
-        'nom',
-        'id_specialite',
-        'status',
-        'date_add',
-        'viw_image,'
-        )
-    list_filter = (
-        'status',
-        'date_add',
-        'date_upd',
-    )
+#     #les champs à afficher dans la table
+#     list_display = (
+#         'nom',
+#         'id_specialite',
+#         'status',
+#         'date_add',
+#         'viw_image,'
+#         )
+#     list_filter = (
+#         'status',
+#         'date_add',
+#         'date_upd',
+#     )
 
-    search_fields = (
-        'nom',
-        'id_specialite',
-    )
+#     search_fields = (
+#         'nom',
+#         'id_specialite',
+#     )
 
-    date_hierarchy = 'date_add'
+#     date_hierarchy = 'date_add'
 
-    actions = ('active', 'desactive')
+#     actions = ('active', 'desactive')
 
-    list_display_links = ['nom',]
+#     list_display_links = ['nom',]
     
-    list_per_page = 10
+#     list_per_page = 10
 
-    ordering = ['nom',]
+#     ordering = ['nom',]
 
-    readonly_fields = ['detail_image']
-
-
-    def active(self, request, queryset):
-        queryset.update(status=True)
-        self.message_user(request, "La sélection a été activée avec succès")
-    active.short_description = 'Activez les Specialisations sélectionnées'
-
-    def desactive(self, request, queryset):
-        queryset.update(status=False)
-        self.message_user(request, "La sélection a été désactivée avec succès")
-    desactive.short_description = 'Désactivez les Specialisations sélectionnées'
-
-    def viw_image(self, obj):
-        return mark_safe('<img src="{img_url}" width="100px" height="50" />'.format(img_url=obj.image.url))
-
-    def detail_image(self, obj):
-        return mark_safe('<img src="{img_url}" width="300px" height="150" />'.format(img_url=obj.image.url))
+#     readonly_fields = ['detail_image']
 
 
-@admin.register(models.Cours)
-class RessourcesVideoAdmin(admin.ModelAdmin):
+#     def active(self, request, queryset):
+#         queryset.update(status=True)
+#         self.message_user(request, "La sélection a été activée avec succès")
+#     active.short_description = 'Activez les Specialisations sélectionnées'
 
-    #les champs à afficher dans la table
-    list_display = (
-        'nom',
-        'date_add',
-        'status',
-        )
-    list_filter = (
-        'status',
-        'date_add',
-        'date_upd',
-    )
+#     def desactive(self, request, queryset):
+#         queryset.update(status=False)
+#         self.message_user(request, "La sélection a été désactivée avec succès")
+#     desactive.short_description = 'Désactivez les Specialisations sélectionnées'
 
-    search_fields = (
-        'nom',
-    )
+#     def viw_image(self, obj):
+#         return mark_safe('<img src="{img_url}" width="100px" height="50" />'.format(img_url=obj.image.url))
 
-    date_hierarchy = 'date_add'
+#     def detail_image(self, obj):
+#         return mark_safe('<img src="{img_url}" width="300px" height="150" />'.format(img_url=obj.image.url))
 
-    actions = ('active', 'desactive')
 
-    list_display_links = ['nom']
+# @admin.register(models.Ressources)
+# class RessourceAdmin(admin.ModelAdmin):
     
-    list_per_page = 10
-
-    ordering = ['nom',]
-
-    def active(self, request, queryset):
-        queryset.update(status=True)
-        self.message_user(request, "La sélection a été activée avec succès")
-    active.short_description = 'Activez les Ressources Videos sélectionnées'
-
-    def desactive(self, request, queryset):
-        queryset.update(status=False)
-        self.message_user(request, "La sélection a été désactivée avec succès")
-    desactive.short_description = 'Désactivez les Ressources Videos sélectionnées'
-
-
-@admin.register(models.Cours)
-class RessourcesPdfAdmin(admin.ModelAdmin):
-
-    #les champs à afficher dans la table
-    list_display = (
-        'nom',
-        'date_add',
-        'status',
-        )
-    list_filter = (
-        'status',
-        'date_add',
-        'date_upd',
-    )
-
-    search_fields = (
-        'nom',
-    )
-
-    date_hierarchy = 'date_add'
-
-    actions = ('active', 'desactive')
-
-    list_display_links = ['nom']
-    
-    list_per_page = 10
-
-    ordering = ['nom',]
-
-    def active(self, request, queryset):
-        queryset.update(status=True)
-        self.message_user(request, "La sélection a été activée avec succès")
-    active.short_description = 'Activez les Ressources Videos sélectionnées'
-
-    def desactive(self, request, queryset):
-        queryset.update(status=False)
-        self.message_user(request, "La sélection a été désactivée avec succès")
-    desactive.short_description = 'Désactivez les Ressources Videos sélectionnées'
-
-
-@admin.register(models.Ressource)
-class RessourceAdmin(admin.ModelAdmin):
-    
-    #les champs à afficher dans la table
-    list_display = (
-        'cours',
-        'status',
-        'date_add',
-        'date_upd',
-        'view_video',
+#     #les champs à afficher dans la table
+#     list_display = (
+#         'cours',
+#         'status',
+#         'date_add',
+#         'date_upd',
             
-        )
-    list_filter = (
-        'status',
-        'date_add',
-        'date_upd',
-        'cours',
-    )
+#         )
+#     list_filter = (
+#         'status',
+#         'date_add',
+#         'date_upd',
+#         'cours',
+#     )
 
-    search_fields = (
-        'categorie',
-        'tague',
-        'titre',
-    )
+#     search_fields = (
+#         'titre',
+#     )
 
-    date_hierarchy = 'date_add'
+#     date_hierarchy = 'date_add'
 
-    actions = ('active', 'desactive')
+#     actions = ('active', 'desactive')
 
-    # list_display_links = ['titre']
+#     # list_display_links = ['titre']
     
-    list_per_page = 3
+#     list_per_page = 3
 
-    # ordering = ['titre',]
+#     # ordering = ['titre',]
 
 
-    fieldsets = [
-        ('Information', {'fields' : ['Cours']}),
-        ('Ressources', {'fields' : ['pdf', 'video']}),
-        ('Standar', {'fields' : ['status', 'date_upd']}),
-    ]
+#     fieldsets = [
+#         ('Information', {'fields' : ['Cours']}),
+#         ('Ressources', {'fields' : ['pdf', 'video']}),
+#         ('Standar', {'fields' : ['status', 'date_upd']}),
+#     ]
 
-    def active(self, request, queryset):
-        queryset.update(status=True)
-        self.message_user(request, "La sélection a été activée avec succès")
-    active.short_description = 'Activez les Ressources sélectionnées'
+#     def active(self, request, queryset):
+#         queryset.update(status=True)
+#         self.message_user(request, "La sélection a été activée avec succès")
+#     active.short_description = 'Activez les Ressources sélectionnées'
 
-    def desactive(self, request, queryset):
-        queryset.update(status=False)
-        self.message_user(request, "La sélection a été désactivée avec succès")
-    desactive.short_description = 'Désactivez les Ressources sélectionnées'
+#     def desactive(self, request, queryset):
+#         queryset.update(status=False)
+#         self.message_user(request, "La sélection a été désactivée avec succès")
+#     desactive.short_description = 'Désactivez les Ressources sélectionnées'
 
-    def view_video(self, obj):
-        return mark_safe('<video controls width="250"><source src="{video_url}" type="video/webm"><source src="{video_url}" type="video/mp4"></video>'.format(video_url=obj.video.url))
+#     # def view_video(self, obj):
+#     #     return mark_safe('<video controls width="250"><source src="{video_url}" type="video/webm"><source src="{video_url}" type="video/mp4"></video>'.format(video_url=obj.video.url))
 
     
