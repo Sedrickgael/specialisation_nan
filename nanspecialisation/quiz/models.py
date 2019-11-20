@@ -16,12 +16,7 @@ class Timemodels(models.Model):
     statut = models.BooleanField(default=True)
     date_add =  models.DateTimeField(auto_now_add=True)
     date_update =  models.DateTimeField(auto_now=True)
-    
-    
-    
-    
-    
-    
+
     class Meta:
         abstract = True
 
@@ -61,18 +56,21 @@ class Profile(Timemodels):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     image = models.ImageField(upload_to="profile", default="omar-sy-by-rachel.jpg")
     specialisation = models.ForeignKey('Specialisation', related_name='users', on_delete=models.CASCADE, blank=True, null=True)
-    moyenne_generale = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
+    moyenne_generale = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=0)
     
     
     def save(self, *args, **kwargs):
-        self.moyenne_generale = self.get_moyenne_general
+        self.moyenne_generale = self.get_moyenne_general()
         super(Profile, self).save(*args, **kwargs)
     
     def get_moyenne_general(self):
         """ Fonction qui recupère la moyenne de l'utilisateur """
-        notes = sum([i.note for i in self.user.quizzs.all()])
-        nb = self.specialisation.quizzs.filter(statut = True).count()
-        return notes/nb
+        if self.specialisation:
+            notes = sum([i.note for i in self.user.quizzs.all()])
+            nb = self.specialisation.quizzs.filter(statut = True).count()
+            return notes/nb
+        else:
+            return 0
         
     
     @property
