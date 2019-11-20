@@ -22,7 +22,6 @@ class Timemodels(models.Model):
 
 # Create your models here.
 class Specialisation(Timemodels):
-    
     """Model definition for Specialisation."""
 
     # TODO: Define fields here
@@ -33,8 +32,7 @@ class Specialisation(Timemodels):
     def classement(self):
         """Fonction pour faire le classement par spécialisation"""
         return self.users.all().order_by('-moyenne_generale')
-    
-    
+
     class Meta:
         """Meta definition for Specialisation."""
 
@@ -44,25 +42,18 @@ class Specialisation(Timemodels):
     def __str__(self):
         """Unicode representation of Specialisation."""
         return self.nom
-    
-    
-        
 
 
 class Profile(Timemodels):
     """Model definition for UserProfile."""
-    
-
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     image = models.ImageField(upload_to="profile", default="omar-sy-by-rachel.jpg")
     specialisation = models.ForeignKey('Specialisation', related_name='users', on_delete=models.CASCADE, blank=True, null=True)
     moyenne_generale = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=0)
-    
-    
     def save(self, *args, **kwargs):
         self.moyenne_generale = self.get_moyenne_general()
         super(Profile, self).save(*args, **kwargs)
-    
+
     def get_moyenne_general(self):
         """ Fonction qui recupère la moyenne de l'utilisateur """
         if self.specialisation:
@@ -71,12 +62,40 @@ class Profile(Timemodels):
             return notes/nb
         else:
             return 0
-        
-    
     @property
     def get_specialisation_rang(self):
         """Fonction pour récupérer le classement de l'utilisateur par spécialisation"""
         return self.specialisation.all().order_by('-moyenne_generale')
+
+    @property
+    def get_general_rang(self):
+        """Fonction pour récupérer le classement général de l'utilisateur"""
+        pass
+    
+    @property
+    def get_specialisation_sexe_rang(self):
+        """Fonction pour récupérer le classement de l'utilisateur par spécialisation par sexe"""
+        pass
+    
+    @property
+    def get_general_sexe_rang(self):
+        """Fonction pour récupérer le classement de l'utilisateur par spécialisation"""
+        pass
+
+
+    class Meta:
+        """Meta definition for UserProfile."""
+
+        verbose_name = 'UserProfile'
+        verbose_name_plural = 'UserProfiles'
+
+    def __str__(self):
+        """Unicode representation of UserProfile."""
+        return self.user.username
+    
+    @classmethod
+    def classement_general(cls):
+        return cls.objet.all().order_by('-moyenne_generale')
     
     @property
     def get_general_rang(self):
