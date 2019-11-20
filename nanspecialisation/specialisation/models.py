@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from tinymce import HTMLField
+from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 
 class Specialisation(models.Model):
@@ -12,6 +13,11 @@ class Specialisation(models.Model):
     status = models.BooleanField(default=True)
     id_specialite = models.PositiveIntegerField(null=True, blank=True)
     # TODO: Define fields here
+
+    @property
+    def classement(self):
+        """Fonction pour faire le classement par spécialisation"""
+        return self.users.all().order_by('-moyenne_generale') #TODO: Adapter au nouveau modèle
 
     class Meta:
         """Meta definition for Specialisation."""
@@ -31,11 +37,94 @@ class UserSpecialite(models.Model):
     date_add = models.DateTimeField(auto_now_add=True)
     date_upd = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=True)
+    moyenne_generale = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=0)
     class Meta:
         """Meta definition for UserSpecialite."""
 
         verbose_name = 'UserSpecialite'
         verbose_name_plural = 'UserSpecialites'
+    
+
+
+
+    #TODO: Adapter au nouveau model et terminer les fonctions
+    def save(self, *args, **kwargs):
+        self.moyenne_generale = self.get_moyenne_general()
+        super(UserSpecialite, self).save(*args, **kwargs)
+
+    def get_moyenne_general(self):
+        """ Fonction qui recupère la moyenne de l'utilisateur """
+        if self.specialisation:
+            notes = sum([i.note for i in self.user.quizzs.all()])
+            nb = self.specialisation.quizzs.filter(statut = True).count()
+            return notes/nb
+        else:
+            return 0
+
+    @property
+    def get_specialisation_rang(self):
+        """Fonction pour récupérer le classement de l'utilisateur par spécialisation"""
+        return self.specialisation.all().order_by('-moyenne_generale')
+
+    @property
+    def get_general_rang(self):
+        """Fonction pour récupérer le classement général de l'utilisateur"""
+        pass
+    
+    @property
+    def get_specialisation_sexe_rang(self):
+        """Fonction pour récupérer le classement de l'utilisateur par spécialisation par sexe"""
+        pass
+    
+    @property
+    def get_general_sexe_rang(self):
+        """Fonction pour récupérer le classement de l'utilisateur par spécialisation"""
+        pass
+
+
+    class Meta:
+        """Meta definition for UserProfile."""
+
+        verbose_name = 'UserProfile'
+        verbose_name_plural = 'UserProfiles'
+
+    def __str__(self):
+        """Unicode representation of UserProfile."""
+        return self.user.username
+    
+    @classmethod
+    def classement_general(cls):
+        return cls.objet.all().order_by('-moyenne_generale')
+          
+    @property
+    def get_general_rang(self):
+        """Fonction pour récupérer le classement général de l'utilisateur"""
+        pass
+    
+    @property
+    def get_specialisation_sexe_rang(self):
+        """Fonction pour récupérer le classement de l'utilisateur par spécialisation par sexe"""
+        pass
+    
+    @property
+    def get_general_sexe_rang(self):
+        """Fonction pour récupérer le classement de l'utilisateur par spécialisation"""
+        pass
+
+
+    class Meta:
+        """Meta definition for UserProfile."""
+
+        verbose_name = 'UserProfile'
+        verbose_name_plural = 'UserProfiles'
+
+    def __str__(self):
+        """Unicode representation of UserProfile."""
+        return self.user.username
+    
+    @classmethod
+    def classement_general(cls):
+        return cls.objet.all().order_by('-moyenne_generale')
 
     def __str__(self):
         """Unicode representation of UserSpecialite."""
@@ -47,8 +136,6 @@ class UserSpecialite(models.Model):
 
 class Niveau(models.Model):
     """Model definition for Niveau."""
-
-
     nom = models.CharField(max_length=255)
     description = HTMLField('description')
 

@@ -24,10 +24,10 @@ class SpecialisationAdmin(admin.ModelAdmin):
     date_hierarchy = ('date_add')
 
 
-class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'specialisation', 'statut', 'date_add', 'date_update', 'view_image')
-    list_filter = ('statut', 'date_add', 'date_update',)
-    date_hierarchy = ('date_add')
+# class ProfileAdmin(admin.ModelAdmin):
+#     list_display = ('user', 'specialisation', 'statut', 'date_add', 'date_update', 'view_image')
+#     list_filter = ('statut', 'date_add', 'date_update',)
+#     date_hierarchy = ('date_add')
 
 
     def view_image(self,obj):
@@ -157,8 +157,8 @@ def _register(model, admin_class):
     admin.site.register(model, admin_class)
 
 
-_register(models.Specialisation, SpecialisationAdmin)
-_register(models.Profile, ProfileAdmin)
+# _register(models.Specialisation, SpecialisationAdmin)
+# _register(models.Profile, ProfileAdmin)
 _register(models.Quizz, QuizzAdmin)
 _register(models.Question, QuestionAdmin)
 _register(models.Reponse, ReponseAdmin)
