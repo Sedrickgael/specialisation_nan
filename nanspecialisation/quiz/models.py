@@ -8,6 +8,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from datetime import datetime
 from tinymce import HTMLField
+from specialisation.models import Specialisation
 from django.core.validators import MaxValueValidator, MinValueValidator
 import pytz
 
@@ -21,127 +22,127 @@ class Timemodels(models.Model):
         abstract = True
 
 # Create your models here.
-class Specialisation(Timemodels):
-    """Model definition for Specialisation."""
+# class Specialisation(Timemodels):
+#     """Model definition for Specialisation."""
 
-    # TODO: Define fields here
-    nom = models.CharField(max_length=50)
-    langage = models.CharField(max_length=50)
+#     # TODO: Define fields here
+#     nom = models.CharField(max_length=50)
+#     langage = models.CharField(max_length=50)
     
-    @property
-    def classement(self):
-        """Fonction pour faire le classement par spécialisation"""
-        return self.users.all().order_by('-moyenne_generale')
+#     @property
+#     def classement(self):
+#         """Fonction pour faire le classement par spécialisation"""
+#         return self.users.all().order_by('-moyenne_generale')
 
-    class Meta:
-        """Meta definition for Specialisation."""
+#     class Meta:
+#         """Meta definition for Specialisation."""
 
-        verbose_name = 'Specialisation'
-        verbose_name_plural = 'Specialisations'
+#         verbose_name = 'Specialisation'
+#         verbose_name_plural = 'Specialisations'
 
-    def __str__(self):
-        """Unicode representation of Specialisation."""
-        return self.nom
+#     def __str__(self):
+#         """Unicode representation of Specialisation."""
+#         return self.nom
 
 
-class Profile(Timemodels):
-    """Model definition for UserProfile."""
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
-    image = models.ImageField(upload_to="profile", default="omar-sy-by-rachel.jpg")
-    specialisation = models.ForeignKey('Specialisation', related_name='users', on_delete=models.CASCADE, blank=True, null=True)
-    moyenne_generale = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=0)
-    def save(self, *args, **kwargs):
-        self.moyenne_generale = self.get_moyenne_general()
-        super(Profile, self).save(*args, **kwargs)
+# class Profile(Timemodels):
+#     """Model definition for UserProfile."""
+#     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
+#     image = models.ImageField(upload_to="profile", default="omar-sy-by-rachel.jpg")
+#     specialisation = models.ForeignKey('Specialisation', related_name='users', on_delete=models.CASCADE, blank=True, null=True)
+#     moyenne_generale = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=0)
+#     def save(self, *args, **kwargs):
+#         self.moyenne_generale = self.get_moyenne_general()
+#         super(Profile, self).save(*args, **kwargs)
 
-    def get_moyenne_general(self):
-        """ Fonction qui recupère la moyenne de l'utilisateur """
-        if self.specialisation:
-            notes = sum([i.note for i in self.user.quizzs.all()])
-            nb = self.specialisation.quizzs.filter(statut = True).count()
-            return notes/nb
-        else:
-            return 0
-    @property
-    def get_specialisation_rang(self):
-        """Fonction pour récupérer le classement de l'utilisateur par spécialisation"""
-        return self.specialisation.all().order_by('-moyenne_generale')
+#     def get_moyenne_general(self):
+#         """ Fonction qui recupère la moyenne de l'utilisateur """
+#         if self.specialisation:
+#             notes = sum([i.note for i in self.user.quizzs.all()])
+#             nb = self.specialisation.quizzs.filter(statut = True).count()
+#             return notes/nb
+#         else:
+#             return 0
+#     @property
+#     def get_specialisation_rang(self):
+#         """Fonction pour récupérer le classement de l'utilisateur par spécialisation"""
+#         return self.specialisation.all().order_by('-moyenne_generale')
 
-    @property
-    def get_general_rang(self):
-        """Fonction pour récupérer le classement général de l'utilisateur"""
-        pass
+#     @property
+#     def get_general_rang(self):
+#         """Fonction pour récupérer le classement général de l'utilisateur"""
+#         pass
     
-    @property
-    def get_specialisation_sexe_rang(self):
-        """Fonction pour récupérer le classement de l'utilisateur par spécialisation par sexe"""
-        pass
+#     @property
+#     def get_specialisation_sexe_rang(self):
+#         """Fonction pour récupérer le classement de l'utilisateur par spécialisation par sexe"""
+#         pass
     
-    @property
-    def get_general_sexe_rang(self):
-        """Fonction pour récupérer le classement de l'utilisateur par spécialisation"""
-        pass
+#     @property
+#     def get_general_sexe_rang(self):
+#         """Fonction pour récupérer le classement de l'utilisateur par spécialisation"""
+#         pass
 
 
-    class Meta:
-        """Meta definition for UserProfile."""
+#     class Meta:
+#         """Meta definition for UserProfile."""
 
-        verbose_name = 'UserProfile'
-        verbose_name_plural = 'UserProfiles'
+#         verbose_name = 'UserProfile'
+#         verbose_name_plural = 'UserProfiles'
 
-    def __str__(self):
-        """Unicode representation of UserProfile."""
-        return self.user.username
+#     def __str__(self):
+#         """Unicode representation of UserProfile."""
+#         return self.user.username
     
-    @classmethod
-    def classement_general(cls):
-        return cls.objet.all().order_by('-moyenne_generale')
+#     @classmethod
+#     def classement_general(cls):
+#         return cls.objet.all().order_by('-moyenne_generale')
           
-    @property
-    def get_general_rang(self):
-        """Fonction pour récupérer le classement général de l'utilisateur"""
-        pass
+#     @property
+#     def get_general_rang(self):
+#         """Fonction pour récupérer le classement général de l'utilisateur"""
+#         pass
     
-    @property
-    def get_specialisation_sexe_rang(self):
-        """Fonction pour récupérer le classement de l'utilisateur par spécialisation par sexe"""
-        pass
+#     @property
+#     def get_specialisation_sexe_rang(self):
+#         """Fonction pour récupérer le classement de l'utilisateur par spécialisation par sexe"""
+#         pass
     
-    @property
-    def get_general_sexe_rang(self):
-        """Fonction pour récupérer le classement de l'utilisateur par spécialisation"""
-        pass
+#     @property
+#     def get_general_sexe_rang(self):
+#         """Fonction pour récupérer le classement de l'utilisateur par spécialisation"""
+#         pass
 
 
-    class Meta:
-        """Meta definition for UserProfile."""
+#     class Meta:
+#         """Meta definition for UserProfile."""
 
-        verbose_name = 'UserProfile'
-        verbose_name_plural = 'UserProfiles'
+#         verbose_name = 'UserProfile'
+#         verbose_name_plural = 'UserProfiles'
 
-    def __str__(self):
-        """Unicode representation of UserProfile."""
-        return self.user.username
+#     def __str__(self):
+#         """Unicode representation of UserProfile."""
+#         return self.user.username
     
-    @classmethod
-    def classement_general(cls):
-        return cls.objet.all().order_by('-moyenne_generale')
+#     @classmethod
+#     def classement_general(cls):
+#         return cls.objet.all().order_by('-moyenne_generale')
 
 
-    @receiver(post_save, sender=User)
-    def create_user_profile(sender, instance, created, **kwargs):
-        if created:
-            Profile.objects.create(user=instance)
+#     @receiver(post_save, sender=User)
+#     def create_user_profile(sender, instance, created, **kwargs):
+#         if created:
+#             Profile.objects.create(user=instance)
 
-    @receiver(post_save, sender=User)
-    def save_user_profile(sender, instance, created, **kwargs):
-        instance.profile.save()
+#     @receiver(post_save, sender=User)
+#     def save_user_profile(sender, instance, created, **kwargs):
+#         instance.profile.save()
 
 class Quizz(Timemodels):
     """Model definition for Quizz."""
 
     # TODO: Define fields here
-    specialisation = models.ForeignKey('Specialisation', related_name='quizzs', on_delete=models.CASCADE)
+    specialisation = models.ForeignKey(Specialisation, related_name='quizzs', on_delete=models.CASCADE)
     titre = models.CharField(max_length=50)
     niveau = models.PositiveIntegerField()
     pourcentage = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], verbose_name="pourcentage pour valider")
@@ -249,7 +250,7 @@ class QuizzUser(Timemodels):
 
     def __str__(self):
         """Unicode representation of QuizzUser."""
-        return str(self.note)
+        return self.user.username
 
 
 class ReponseUser(Timemodels):

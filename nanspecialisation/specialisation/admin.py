@@ -79,6 +79,7 @@ class UserSpecialiteAdmin(admin.ModelAdmin):
         'date_upd',
         'user',
         'specialite',
+        
     )
 
     # search_fields = (
