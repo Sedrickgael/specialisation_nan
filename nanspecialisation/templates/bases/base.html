@@ -9,8 +9,12 @@
         <!-- stylesheet ***************************************** -->
         <link rel="stylesheet" href="/static/ressources/css/bootstrap.min.css">
         <link rel="stylesheet" href="/static/ressources/css/main.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="/static/ressources/css/datatable/datatable.bootstrap.css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" rel="stylesheet">
+        <link href="https://vjs.zencdn.net/7.6.5/video-js.css" rel="stylesheet">
+        <link rel="stylesheet" href="/static/ressources/css/slick.min.css">
 
-        
+
         <!-- favicons  ****************************************** -->
         <link rel="apple-touch-icon" sizes="57x57" href="/static/ressources/images/favicons.ico/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/static/ressources/images/favicons.ico//apple-icon-60x60.png">
@@ -32,17 +36,32 @@
 
         <!-- jquery ******************************************** -->
         <script src="/static/ressources/js/jquery.min.js"></script>
+        <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+        <script src='https://vjs.zencdn.net/7.6.5/video.js'></script>
 
-        
     </head>
     <body>
 
         <section class="main center-content">
+            <div class="main-navbar">
+                <div id="user-circle" class="profil" style="background: url(/static/ressources/images/photo.png) center no-repeat; background-size: cover;">&nbsp;</div>
+                <div id="dropdown-user" class="profil-dropdown"  >
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'profil' %}">Profil</a></li>
+                        <li><a href="{% url 'deconnexion' %}">Déconnexion</a></li>
+                    </ul>
+                </div>
+                <p class="nan" >Not A Number</p>
+
+            </div>
+
             
             {% block content %}
                 
             {% endblock content %}
                 
+
             <div class="copyright">
                 <h4>plateforme concours</h4>
                 <h5>© DevsFront - Not A Number</h5>
@@ -50,52 +69,46 @@
         </section>
         
         <!-- script ****************************************** -->
-        <script src="/static/ressources/js/bootstrap.min.js"></script>
         <script src="/static/ressources/js/main.js"></script>
+        <script src="/static/ressources/js/bootstrap.min.js"></script>
+       
+        <script src="/static/ressources/js/slick.min.js"></script>
 
-        <!-- VueJS et Axios -->
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/http-vue-loader@1.4.1/src/httpVueLoader.min.js"></script>
+        <!-- script resizable -->
+        <script src="https://rawgit.com/RickStrahl/jquery-resizable/master/src/jquery-resizable.js"></script>
 
-        <!-- <script>
-            new Vue({
-            el: '#my-app',
-            data: {
-                base_url:'',
-                loader: true,
-                contain: false,
-            },
-            components: {
-                'quizz-test': httpVueLoader('/static/components/quizz.vue'),
-            },
-            delimiters: ["${", "}"],
-            mounted() {
-                // this.getdata()
-            },
-            methods: {
-                // getdata: function(){
-                //     this.base_url = 'https://localhost:8000'
-                //     console.log('data getting')
-                //     axios.defaults.xsrfCookieName = 'csrftoken'
-                //     axios.defaults.xsrfHeaderName = 'X-CSRFToken'
-                //     axios({
-                //         url: this.base_url + '/graphql',
-                //         method: 'post',
-                //         data: {
-                //             query: ``
-                //         }
-                //     })
-                //     .then(response => {
+        <!-- // resizable script // -->
+        <script>
 
-                //     })
-                //     .catch((err) => {
+            /* typed js -------------------------------------------------------*/
+            /* testimonials */
+            $(document).ready(function() {
+                $(".testimonial-carousel").slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: false,
+                    arrows: true,
+                    autoplaySpeed: 5000,
+                    prevArrow: $(".testimonial-carousel-controls .prev"),
+                    nextArrow: $(".testimonial-carousel-controls .next")
+                });
+            });
 
-                //     })
-                // }
-            },
-        });
-        </script> -->
+            $(".panel-left").resizable({
+                handleSelector: ".splitter",
+                resizeHeight: false
+            });
+
+            $(".panel-top").resizable({
+                handleSelector: ".splitter-horizontal",
+                resizeWidth: false
+            });
+
+            
+
+        </script>
+
 
     </body>
 </html>
