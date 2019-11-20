@@ -249,7 +249,7 @@ class QuizzUser(Timemodels):
 
     def __str__(self):
         """Unicode representation of QuizzUser."""
-        return str(self.note)
+        return self.user.username
 
 
 class ReponseUser(Timemodels):

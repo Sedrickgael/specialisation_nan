@@ -40,10 +40,10 @@
 
 #     readonly_fields = ['detail_image']
 
-#     fieldsets = [
-#         ('Information', {'fields' : ['nom', 'description', 'image', 'id_specialite' ]}),
-#         ('Standard', {'fields' : ['status', 'date_upd']}),
-#     ]
+    fieldsets = [
+        ('Information', {'fields' : ['nom', 'description', 'image', 'id_specialite' ]}),
+        ('Standard', {'fields' : ['status']}),
+    ]
 
 
 #     def active(self, request, queryset):
@@ -95,11 +95,11 @@
 
 #     # ordering = ['nom',]
 
-#     # readonly_fields = ['detail_image']
-#     fieldsets = [
-#         ('Information', {'fields' : ['user', 'specialite' ]}),
-#         ('Standard', {'fields' : ['status', 'date_upd']}),
-#     ]
+    # readonly_fields = ['detail_image']
+    fieldsets = [
+        ('Information', {'fields' : ['user', 'specialite' ]}),
+        ('Standard', {'fields' : ['status']}),
+    ]
 
 #     def active(self, request, queryset):
 #         queryset.update(status=True)
@@ -147,10 +147,10 @@
 
 #     ordering = ['nom',]
 
-#     fieldsets = [
-#         ('Information', {'fields' : ['nom', 'description' ]}),
-#         ('Standard', {'fields' : ['status', 'date_upd']}),
-#     ]
+    fieldsets = [
+        ('Information', {'fields' : ['nom', 'description' ]}),
+        ('Standard', {'fields' : ['status']}),
+    ]
 
 #     def active(self, request, queryset):
 #         queryset.update(status=True)
@@ -196,11 +196,11 @@
     
 #     list_per_page = 10
 
-#     ordering = ['titre',]
-#     fieldsets = [
-#         ('Information', {'fields' : ['titre', 'niveau', 'description', 'specialisation' ]}),
-#         ('Standard', {'fields' : ['status', 'date_upd']}),
-#     ]
+    ordering = ['titre',]
+    fieldsets = [
+        ('Information', {'fields' : ['titre', 'niveau', 'description', 'specialisation' ]}),
+        ('Standard', {'fields' : ['status']}),
+    ]
 
 #     def active(self, request, queryset):
 #         queryset.update(status=True)
@@ -244,11 +244,11 @@
 #     ordering = ['types',]
 
 
-#     fieldsets = [
-#         ('Information', {'fields' : ['cours']}),
-#         ('Ressources', {'fields' : ['link', 'types']}),
-#         ('Standard', {'fields' : ['status', 'date_upd']}),
-#     ]
+    fieldsets = [
+        ('Information', {'fields' : ['cours']}),
+        ('Ressources', {'fields' : ['link', 'types']}),
+        ('Standard', {'fields' : ['status']}),
+    ]
     
 
 #     def active(self, request, queryset):
@@ -297,10 +297,10 @@
 #     ordering = ['date_debut',]
 
 
-#     fieldsets = [
-#         ('Information', {'fields' : ['Cours', 'date_debut', 'date_fin']}),
-#         ('Standard', {'fields' : ['status', 'date_upd']}),
-#     ]
+    fieldsets = [
+        ('Information', {'fields' : ['cours', 'date_debut', 'date_fin']}),
+        ('Standard', {'fields' : ['status']}),
+    ]
 
 #     def active(self, request, queryset):
 #         queryset.update(status=True)
@@ -345,10 +345,10 @@
 #     ordering = ['rang',]
 
 
-#     fieldsets = [
-#         ('Information', {'fields' : ['user', 'note', 'rang']}),
-#         ('Standard', {'fields' : ['status', 'date_upd']}),
-#     ]
+    fieldsets = [
+        ('Information', {'fields' : ['user', 'note', 'rang']}),
+        ('Standard', {'fields' : ['status']}),
+    ]
 
 #     def active(self, request, queryset):
 #         queryset.update(status=True)
