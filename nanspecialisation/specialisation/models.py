@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from tinymce import HTMLField
 # Create your models here.
+
 class Specialisation(models.Model):
     nom = models.CharField( max_length=250)
     image = models.FileField(upload_to="specialite/image")
@@ -32,15 +33,15 @@ class UserSpecialite(models.Model):
     date_add = models.DateTimeField(auto_now_add=True)
     date_upd = models.DateTimeField(auto_now=True)
 
-class Meta:
-    """Meta definition for UserSpecialite."""
+    class Meta:
+        """Meta definition for UserSpecialite."""
 
-    verbose_name = 'UserSpecialite'
-    verbose_name_plural = 'UserSpecialites'
+        verbose_name = 'UserSpecialite'
+        verbose_name_plural = 'UserSpecialites'
 
-def __str__(self):
-    """Unicode representation of UserSpecialite."""
-    return '{}:{}'.format(self.user.username,self.specialite.nom ) # TODO
+    def __str__(self):
+        """Unicode representation of UserSpecialite."""
+        return '{}:{}'.format(self.user.username,self.specialite.nom ) # TODO
 
 class Niveau(models.Model):
     """Model definition for Niveau."""
@@ -62,6 +63,7 @@ class Niveau(models.Model):
     def __str__(self):
         """Unicode representation of Niveau."""
         return '{}'.format(self.nom ) # TODO
+        
 class Cours(models.Model):
     """Model definition for Cours."""
 
